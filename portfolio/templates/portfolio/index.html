@@ -1,0 +1,407 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Priyanka | Portfolio</title>
+  <link rel="stylesheet" href="{% static 'portfolio_css/styles.css' %}" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Special+Gothic+Expanded+One&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="icon" href="{% static 'portfolio_assets/android-chrome-512x512.png' %}" type="image/x-icon" />
+</head>
+
+<body>
+  <!-- Scroll Progress Bar -->
+  <div class="fixed right-6 top-1/2 transform -translate-y-1/2 h-64 w-1.5 bg-gray-700 rounded-full z-50 hidden sm:block">
+    <div id="scroll-indicator" class="bg-[#770677] h-0 w-full rounded-full transition-all duration-300 ease-out shadow-md shadow-[#770677]"></div>
+  </div>
+
+  <!-- Loading Animation -->
+  <div id="loading">
+    <div class="loading-text" id="name-loader">
+      <span data-text="P">P</span>
+      <span data-text="R">R</span>
+      <span data-text="I">I</span>
+      <span data-text="Y">Y</span>
+      <span data-text="A">A</span>
+      <span data-text="N">N</span>
+      <span data-text="K">K</span>
+      <span data-text="A">A</span>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="position-relative container-fluid min-vh-100 d-flex justify-content-center align-items-center text-white overflow-hidden" style="background-color: #000000">
+    <!-- Hero Particle Background -->
+    <div id="particles-hero" class="position-absolute w-100 h-100 top-0 start-0" style="z-index: 0"></div>
+
+    <!-- Hero Content -->
+    <div class="container text-center position-relative" style="z-index: 1">
+      <h1 class="display-4 fw-bold">
+        <span class="text-white me-2">Hi, I'm</span>
+        <button class="button" data-text="Priyanka">
+          <span class="actual-text">&nbsp;PRIYANKA&nbsp;</span>
+          <span aria-hidden="true" class="hover-text">&nbsp;Priyanka&nbsp;</span>
+        </button>
+      </h1>
+      <p class="lead text-light mt-3">
+        Full Stack Developer blending Django, design, and logic to build meaningful web experiences.
+      </p>
+      <a href="#projects" class="shadow__btn mt-4">My Projects</a>
+    </div>
+  </section>
+
+  <!-- About Me Section -->
+  <section id="about" class="bg-black text-white py-20 px-6">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-center text-center md:text-left gap-10 px-4">
+      <!-- Profile Image -->
+      <div class="flex-shrink-0 w-64 h-64 rounded-xl overflow-hidden shadow-lg grayscale hover:grayscale-0 transition duration-500" id="about-img">
+        <img src="{% static 'portfolio_assets/priyanka.png' %}" alt="Priyanka Bana" class="w-full h-full object-cover" />
+      </div>
+
+      <!-- Text Content -->
+      <div class="max-w-2xl" id="about-text">
+        <h2 class="text-3xl md:text-4xl font-semibold leading-snug mb-4">
+          I’m <span class="text-[#770677] font-bold">Priyanka Bana</span>, a Full Stack Developer passionate about crafting clean, human-focused web experiences.
+        </h2>
+
+        <p class="text-gray-300 text-lg leading-relaxed mb-6">
+          Currently pursuing my B.Tech in Computer Engineering at Vishwakarma University, Pune, I enjoy building both the logic and the look of modern web applications. From Django and MySQL on the backend to responsive design and smooth UI interactions on the frontend, I love turning complex problems into elegant solutions.
+        </p>
+
+        <p class="text-gray-300 text-lg leading-relaxed mb-6">
+          Whether it's coding, collaborating, or contributing to meaningful tech projects, I bring curiosity, creativity, and code together. When I’m not debugging or designing, you’ll find me doing classical dance, travelling and capturing moments, or painting ideas that inspire.
+        </p>
+
+        <!-- Social Icons -->
+        <div class="flex space-x-5 mt-6 align-items-center justify-content-center md:justify-start">
+          <a href="https://www.instagram.com/piyu23____/" target="_blank" class="text-[#e1306c] text-2xl hover:text-[#ff6090] transition">
+            <img src="{% static 'portfolio_assets/instagram-logo.png' %}" class="w-9 h-9" alt="instagram-logo">
+          </a>
+          <a href="https://www.linkedin.com/in/priyankabana" target="_blank" class="text-[#0a66c2] text-2xl hover:text-[#339af0] transition">
+            <img src="{% static 'portfolio_assets/linkedin-logo.png' %}" class="w-9 h-9" alt="linkedin-logo">
+          </a>
+          <a href="mailto:priyankabana0408@gmail.com" class="text-white text-2xl hover:text-gray-400 transition">
+            <img src="{% static 'portfolio_assets/mail-logo.png' %}" class="w-9 h-9" alt="mail-logo">
+          </a>
+          <a href="https://github.com/priyankabana" target="_blank" class="text-white text-2xl hover:text-gray-400 transition">
+            <img src="{% static 'portfolio_assets/github-logo.png' %}" class="w-9 h-9" alt="github-logo">
+          </a>
+        </div>
+
+        <!-- Download Resume Button -->
+        <div class="flex align-items-center justify-content-center mt-8">
+          <a href="/media/resume.pdf" download>
+            <button class="dbutton" type="dbutton">
+              <span class="dbutton__text">Resume 📥</span>
+              <span class="dbutton__icon">
+                <!-- SVG code stays unchanged -->
+              </span>
+            </button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- JOURNEY SECTION -->
+  <section id="journey" class="bg-black text-white py-20 px-6">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-4xl font-bold mb-16 text-center text-#770677]">My Journey</h2>
+
+      <div class="relative">
+        <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-[#770677]"></div>
+
+        <!-- Timeline Card 1 -->
+        <div class="relative mb-16 md:mb-24 md:flex justify-end">
+          <div class="hidden md:block absolute w-4 h-4 bg-[#770677] rounded-full left-1/2 transform -translate-x-1/2 top-4 z-10"></div>
+          <div class="md:w-1/2"></div>
+          <div class="md:w-1/2 md:pl-10">
+            <div class="bg-[#111] p-6 rounded-2xl border border-[#770677] shadow-lg journey-card">
+              <h3 class="text-xl font-semibold text-[#770677]">Internship at @Better Capital</h3>
+              <span class="text-sm text-gray-400">June 2025 - Aug 2025</span>
+              <p class="mt-2 text-gray-300">Worked on web scraping. Built smart Django apps like an Employee Manager and File Converter. Explored SQL integration, RabbitMQ, and optimized large data handling.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Timeline Card 2 -->
+        <div class="relative mb-16 md:mb-24 md:flex justify-end">
+          <div class="hidden md:block absolute w-4 h-4 bg-[#770677] rounded-full left-1/2 transform -translate-x-1/2 top-4 z-10"></div>
+          <div class="md:w-1/2"></div>
+          <div class="md:w-1/2 md:pl-10">
+            <div class="bg-[#111] p-6 rounded-2xl border border-[#770677] shadow-lg journey-card">
+              <h3 class="text-xl font-semibold text-[#770677]">B.Tech – Computer Engineering (CSBS)</h3>
+              <span class="text-sm text-gray-400">Vishwakarma University, Pune (2023 - 2027)</span>
+              <p class="mt-2 text-gray-300">Focused on full-stack development, data structures, and foundational CS subjects like DBMS, OOP, and linear algebra, with hands-on experience in Python, Django, and MySQL.</p>
+            </div>
+          </div>
+        </div>
+
+
+  </section>
+
+  <!-- TECH STACK SECTION -->
+  <section id="tech-stack" class="bg-black text-white py-20 px-6 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto flex flex-col gap-20">
+
+      <!-- FRONTEND -->
+      <div class="flex md:flex-row flex-col gap-8 items-start" id="frontend">
+        <div class="w-full md:w-1/5 text-gray-400 text-lg font-bold sticky top-18">
+          <div class="category-label cursor-pointer hover:text-white transition" onclick="document.querySelector('#frontend').scrollIntoView({behavior: 'smooth'})">FRONTEND</div>
+        </div>
+
+        <div class="w-full md:w-4/5 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 reveal-section">
+          <div class="flex items-center gap-2"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" class="w-6 h-6"><span class="text-lg">Javascript</span></div>
+          <div class="flex items-center gap-2"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" class="w-6 h-6"><span class="text-lg">React</span></div>
+          <div class="flex items-center gap-2"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" class="w-6 h-6"><span class="text-lg">Tailwind CSS</span></div>
+          <div class="flex items-center gap-2"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" class="w-6 h-6"><span class="text-lg">HTML5</span></div>
+          <div class="flex items-center gap-2"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" class="w-6 h-6"><span class="text-lg">CSS3</span></div>
+        </div>
+      </div>
+
+      <!-- BACKEND, DATABASE, TOOLS follow... -->
+      <!-- BACKEND -->
+      <div class="flex md:flex-row flex-col gap-8 items-start" id="backend">
+        <div class="w-full md:w-1/5 text-gray-400 text-lg font-bold sticky top-18">
+          <div class="category-label cursor-pointer hover:text-white transition" onclick="document.querySelector('#backend').scrollIntoView({behavior: 'smooth'})">BACKEND</div>
+        </div>
+        <div class="w-full md:w-4/5 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 reveal-section">
+          <div class="flex items-center gap-2"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" class="w-6 h-6"><span class="text-lg">Python</span></div>
+          <div class="flex items-center gap-2"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" class="w-6 h-6"><span class="text-lg">Node.js</span></div>
+          <div class="flex items-center gap-2"><img src="https://img.icons8.com/?size=100&id=XPdRFanRZtNK&format=png&color=000000" class="w-6 h-6 bg-white rounded-full p-0.5"><span class="text-lg">Django</span></div>
+        </div>
+      </div>
+
+     <!-- Core languages -->
+      <div class="flex md:flex-row flex-col gap-8 items-start" id="backend">
+        <div class="w-full md:w-1/5 text-gray-400 text-lg font-bold sticky top-18">
+          <div class="category-label cursor-pointer hover:text-white transition" onclick="document.querySelector('#backend').scrollIntoView({behavior: 'smooth'})">Core Languages</div>
+        </div>
+        <div class="w-full md:w-4/5 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 reveal-section">
+          <div class="flex items-center gap-2"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" class="w-6 h-6"><span class="text-lg">C</span></div>
+          <div class="flex items-center gap-2"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" class="w-6 h-6"><span class="text-lg">C++</span></div>            
+          <div class="flex items-center gap-2"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" class="w-6 h-6"><span class="text-lg">Node.js</span></div>
+        </div>
+      </div>
+
+
+      <!-- DATABASE -->
+      <div class="flex md:flex-row flex-col gap-8 items-start" id="database">
+        <div class="w-full md:w-1/5 text-gray-400 text-lg font-bold sticky top-18">
+          <div class="category-label cursor-pointer hover:text-white transition" onclick="document.querySelector('#database').scrollIntoView({behavior: 'smooth'})">DATABASE</div>
+        </div>
+        <div class="w-full md:w-4/5 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 reveal-section">
+          <div class="flex items-center gap-2"><img src="https://www.mysql.com/common/logos/logo-mysql-170x115.png" class="w-6 h-6"><span class="text-lg">MySQL</span></div>
+          <div class="flex items-center gap-2"><img src="https://cdn-icons-png.freepik.com/256/15160/15160567.png?ga=GA1.1.1435726973.1730800074&semt=ais_hybrid" class="w-6 h-6"><span class="text-lg">SQL</span></div>
+          <div class="flex items-center gap-2"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/oracle/oracle-original.svg" class="w-6 h-6"><span class="text-lg">Oracle</span></div>
+        </div>
+      </div>
+
+      <!-- TOOLS -->
+      <div class="flex md:flex-row flex-col gap-8 items-start" id="tools">
+        <div class="w-full md:w-1/5 text-gray-400 text-lg font-bold sticky top-18">
+          <div class="category-label cursor-pointer hover:text-white transition" onclick="document.querySelector('#tools').scrollIntoView({behavior: 'smooth'})">TOOLS</div>
+        </div>
+        <div class="w-full md:w-4/5 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 reveal-section">
+          <div class="flex items-center gap-2"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" class="w-6 h-6"><span class="text-lg">Git</span></div>
+          <div class="flex items-center gap-2"><img src="https://code.visualstudio.com/assets/images/code-stable.png" class="w-6 h-6"><span class="text-lg">VS Code</span></div>
+          <div class="flex items-center gap-2"><img src="{% static 'portfolio_assets/github-logo.png' %}" class="w-6 h-6"><span class="text-lg">GitHub</span></div>
+          <div class="flex items-center gap-2"><img src="https://jupyter.org/assets/homepage/main-logo.svg" class="w-6 h-6"><span class="text-lg">Jupyter Notebook</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- PROJECTS SECTION -->
+<section id="projects" class="relative bg-black text-white py-20 px-6 overflow-hidden">
+  <!-- PARTICLES BACKGROUND -->
+  <div id="particles-projects" class="absolute top-0 left-0 w-full h-full z-0"></div>
+
+  <!-- ACTUAL PROJECT CONTENT -->
+  <div class="relative z-10">
+    <div class="max-w-6xl mx-auto text-center mb-12">
+      <h2 class="text-4xl font-bold mb-4">Projects</h2>
+      <p class="text-gray-300 text-lg">Some of the things I've built.</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-10 max-w-6xl mx-auto">
+
+      {% comment %} PROJECT 1 {% endcomment %}
+      <div class="project-card bg-white text-black shadow-xl rounded-2xl overflow-hidden transform hover:scale-[1.02] transition-all duration-300">
+        <img src="{% static 'portfolio_assets/readme-generator-ss2.png' %}" alt="GitHub Readme Generator" class="w-full h-60 object-cover" />
+        <div class="p-6">
+          <h3 class="text-2xl font-semibold mb-2">GitHub Readme Generator</h3>
+          <p class="text-gray-700 mb-4">Create and preview GitHub README files instantly. Simple, fast, and no sign-up needed.</p>
+          <div class="flex flex-wrap gap-3 mb-4">
+            <span class="badge">React</span>
+            <span class="badge">Tailwind CSS</span>
+            <span class="badge">Markdown</span>
+            <span class="badge">Netlify</span>
+            <span class="badge">Vite</span>
+          </div>
+          <div class="flex gap-4">
+            <a href="https://readme-generator-github-abhijeetbhale.netlify.app/" target="_blank" class="btn-primary">Live Demo</a>
+            <a href="https://github.com/abhijeetBhale/Readme-Generator" target="_blank" class="btn-secondary">GitHub</a>
+          </div>
+        </div>
+      </div>
+
+      {% comment %} PROJECT 2 {% endcomment %}
+      <div class="project-card bg-white text-black shadow-xl rounded-2xl overflow-hidden transform hover:scale-[1.02] transition-all duration-300">
+        <img src="{% static 'portfolio_assets/Boost_AI SS.png' %}" alt="Boost AI" class="w-full h-60 object-cover" />
+        <div class="p-6">
+          <h3 class="text-2xl font-semibold mb-2">Boost AI</h3>
+          <p class="text-gray-700 mb-4">AI productivity tool using Gemini for content and task automation with real-time chat.</p>
+          <div class="flex flex-wrap gap-3 mb-4">
+            <span class="badge">React</span>
+            <span class="badge">MongoDB</span>
+            <span class="badge">Node.js</span>
+            <span class="badge">Gemini</span>
+            <span class="badge">Express</span>
+          </div>
+          <div class="flex gap-4">
+            <a href="https://boost-ai.netlify.app/" target="_blank" class="btn-primary">Live Demo</a>
+            <a href="https://github.com/abhijeetBhale/chatgpt-clone" target="_blank" class="btn-secondary">GitHub</a>
+          </div>
+        </div>
+      </div>
+
+      {% comment %} PROJECT 3 {% endcomment %}
+      <div class="project-card bg-white text-black shadow-xl rounded-2xl overflow-hidden transform hover:scale-[1.02] transition-all duration-300">
+        <img src="{% static 'portfolio_assets/pinterest-clone.png' %}" alt="Pinterest Clone" class="w-full h-60 object-cover" />
+        <div class="p-6">
+          <h3 class="text-2xl font-semibold mb-2">Pinterest Clone</h3>
+          <p class="text-gray-700 mb-4">A Pinterest-style UI using React, React Router, MongoDB, and Tailwind CSS.</p>
+          <div class="flex flex-wrap gap-3 mb-4">
+            <span class="badge">React</span>
+            <span class="badge">React Router</span>
+            <span class="badge">Tailwind</span>
+            <span class="badge">MongoDB</span>
+            <span class="badge">Node.js</span>
+          </div>
+          <div class="flex gap-4">
+            <a href="https://github.com/abhijeetBhale/Pinterest-Clone" target="_blank" class="btn-primary">Live Demo</a>
+            <a href="https://github.com/abhijeetBhale/Pinterest-Clone" target="_blank" class="btn-secondary">GitHub</a>
+          </div>
+        </div>
+      </div>
+
+      {% comment %} PROJECT 4 {% endcomment %}
+      <div class="project-card bg-white text-black shadow-xl rounded-2xl overflow-hidden transform hover:scale-[1.02] transition-all duration-300">
+        <img src="{% static 'portfolio_assets/finger-fiasco.png' %}" alt="Finger Fiasco" class="w-full h-60 object-cover" />
+        <div class="p-6">
+          <h3 class="text-2xl font-semibold mb-2">Finger Fiasco</h3>
+          <p class="text-gray-700 mb-4">Typing speed game with custom logic built using vanilla HTML, CSS, JS.</p>
+          <div class="flex flex-wrap gap-3 mb-4">
+            <span class="badge">HTML</span>
+            <span class="badge">CSS</span>
+            <span class="badge">Bootstrap</span>
+            <span class="badge">JavaScript</span>
+          </div>
+          <div class="flex gap-4">
+            <a href="https://abhijeetbhale.github.io/FingerFiasco/home.html" target="_blank" class="btn-primary">Live Demo</a>
+            <a href="https://github.com/abhijeetbhale/FingerFiasco" target="_blank" class="btn-secondary">GitHub</a>
+          </div>
+        </div>
+      </div>
+
+      {% comment %} PROJECT 5 {% endcomment %}
+      <div class="project-card bg-white text-black shadow-xl rounded-2xl overflow-hidden transform hover:scale-[1.02] transition-all duration-300">
+        <img src="{% static 'portfolio_assets/portfolio-ss.png' %}" alt="Portfolio Website" class="w-full h-60 object-cover" />
+        <div class="p-6">
+          <h3 class="text-2xl font-semibold mb-2">Portfolio Website</h3>
+          <p class="text-gray-700 mb-4">This very portfolio! Fully responsive and animated with dark theme.</p>
+          <div class="flex flex-wrap gap-3 mb-4">
+            <span class="badge">HTML</span>
+            <span class="badge">CSS</span>
+            <span class="badge">JavaScript</span>
+            <span class="badge">Tailwind CSS</span>
+            <span class="badge">Framer Motion</span>
+          </div>
+          <div class="flex gap-4">
+            <a href="https://abhijeetbhale.github.io/Portfolio/" target="_blank" class="btn-primary">Live Demo</a>
+            <a href="https://github.com/abhijeetBhale/Portfolio" target="_blank" class="btn-secondary">GitHub</a>
+          </div>
+        </div>
+      </div>
+
+      {% comment %} PROJECT 6 {% endcomment %}
+      <div class="project-card bg-white text-black shadow-xl rounded-2xl overflow-hidden transform hover:scale-[1.02] transition-all duration-300">
+        <img src="{% static 'portfolio_assets/Pizza-Store-Landing-Page.png' %}" alt="Cheese Oven" class="w-full h-60 object-cover" />
+        <div class="p-6">
+          <h3 class="text-2xl font-semibold mb-2">Cheese Oven</h3>
+          <p class="text-gray-700 mb-4">Delicious pizza landing page with Bootstrap design and interactive UI.</p>
+          <div class="flex flex-wrap gap-3 mb-4">
+            <span class="badge">HTML</span>
+            <span class="badge">CSS</span>
+            <span class="badge">Bootstrap</span>
+            <span class="badge">JavaScript</span>
+          </div>
+          <div class="flex gap-4">
+            <a href="https://abhijeetbhale.github.io/Landing-Page-Project-Cheese-Oven/" target="_blank" class="btn-primary">Live Demo</a>
+            <a href="https://github.com/abhijeetBhale/Landing-Page-Project-Cheese-Oven" target="_blank" class="btn-secondary">GitHub</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+  <!-- UPCOMING PROJECTS -->
+  <section id="upcoming-projects" class="relative bg-[#0f0f0f] text-white py-20 px-6">
+    <div class="max-w-6xl mx-auto text-center mb-12">
+      <h2 class="text-4xl font-bold mb-4">Upcoming Projects</h2>
+      <p class="text-gray-400 text-lg">Some exciting ideas I'm currently working on.</p>
+    </div>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-6xl mx-auto">
+      <div class="upcoming-card bg-white text-black rounded-xl shadow-lg p-6">
+        <h3 class="text-xl font-semibold mb-2">Social Media App</h3>
+        <p class="text-gray-700 text-lg mb-4">A modern social media platform featuring user profiles, posts, real-time chat, notifications, and interactive feeds built with the MERN stack and Next.js.</p>
+        <span class="inline-block bg-yellow-100 text-yellow-700 px-3 py-1 rounded text-xs font-semibold">Coming Soon</span>
+      </div>
+      <div class="upcoming-card bg-white text-black rounded-xl shadow-lg p-6">
+        <h3 class="text-xl font-semibold mb-2">School Management Dashboard</h3>
+        <p class="text-gray-700 text-lg mb-4">A MERN-based admin dashboard to manage students, attendance, teachers, and performance data with charts and analytics.</p>
+        <span class="inline-block bg-yellow-100 text-yellow-700 px-3 py-1 rounded text-xs font-semibold">Coming Soon</span>
+      </div>
+      <div class="upcoming-card bg-white text-black rounded-xl shadow-lg p-6">
+        <h3 class="text-xl font-semibold mb-2">Rental Web Application</h3>
+        <p class="text-gray-700 text-lg mb-4">A property rental platform with user authentication, property listings, filtering, booking system, and admin control panel.</p>
+        <span class="inline-block bg-yellow-100 text-yellow-700 px-3 py-1 rounded text-xs font-semibold">Coming Soon</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="bg-black text-white py-20 px-6 flex items-center justify-center">
+    <div class="w-full max-w-4xl text-center flex flex-col items-center gap-6">
+      <p class="text-gray-400 text-lg">Let's connect and build something amazing!</p>
+      <a href="mailto:abhijeetbhale7@gmail.com" class="hover:text-gray-400 transition">
+        <h2 class="text-4xl font-bold mb-2">priyankabana0408@gmail.com</h2>
+      </a>
+      <!-- GitHub Button omitted for brevity -->
+    </div>
+  </section>
+
+  <a href="mailto:priyankabana0408@gamil.com?subject=Let's Connect&body=Hi Priyanka,%0D%0A%0D%0AI wanted to get in touch with you..." class="fixed-email" title="Mail Me">
+    priyankabana0408@gamil.com
+  </a>
+
+  <!-- External JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Local JS -->
+  <script src="{% static 'portfolio_js/script.js' %}"></script>
+</body>
+</html>
